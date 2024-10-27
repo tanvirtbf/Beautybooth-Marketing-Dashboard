@@ -1,9 +1,16 @@
+import { useState } from "react";
 import CampaignTrack from "../../public/CampaignTrack.svg";
 import Customer from "../../public/Customer.svg";
 import EcomIcon from "../../public/EcomIcon.svg";
 import Marketplace from "../../public/Marketplace.svg";
 
 const SidebarDropdown = () => {
+
+  const className = 'rotate-180'
+  const [click,setClick] = useState(0)
+  console.log(click)
+
+
   const dropDownItem = [
     {
       id: 1,
@@ -43,8 +50,8 @@ const SidebarDropdown = () => {
   return (
     <div>
       {dropDownItem &&
-        dropDownItem.map((dropDown, i) => (
-          <div key={i} className="flex flex-col gap-1">
+        dropDownItem.map((dropDown) => (
+          <div key={dropDown.id} className="flex flex-col gap-1">
             <div className="flex items-center justify-between">
               <div className="flex">
                 <div>
@@ -52,14 +59,14 @@ const SidebarDropdown = () => {
                 </div>
                 <div>{dropDown.dropDownName}</div>
               </div>
-              <div>
+              <div className="cursor-pointer" onClick={()=> setClick(dropDown.id)}>
                 <svg
+                  className= {`${click===dropDown.id ? 'rotate-180' : ''}`}
                   width="20"
                   height="20"
                   viewBox="0 0 20 20"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
-                  className="rotate-180"
                 >
                   <path
                     fillRule="evenodd"
