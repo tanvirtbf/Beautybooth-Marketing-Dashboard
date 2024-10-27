@@ -1,10 +1,9 @@
-import React from "react";
 
 const Navbar = () => {
   return (
-    <div className="pt-9 pb-5 flex justify-between">
+    <div className="pt-9 pb-5 flex justify-between flex-grow items-start">
       <div>
-        <h2 className="font-semibold text-sm text-black">Dashboard</h2>
+        <h2 className="font-semibold text-sm text-black ">Dashboard</h2>
       </div>
       <div className="flex gap-4">
         <div className="border border-[#00000030] rounded-2xl font-medium text-sm text-textGray navBtnPadding">This Week</div>
