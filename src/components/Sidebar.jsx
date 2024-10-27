@@ -69,9 +69,7 @@ const Sidebar = () => {
             <div className="font-normal text-sm text-black">Dashboard</div>
           </div>
         </div>
-        <div className="flex flex-col gap-4">
-          <SidebarDropdown />
-        </div>
+        <SidebarDropdown />
       </div>
     </div>
   );

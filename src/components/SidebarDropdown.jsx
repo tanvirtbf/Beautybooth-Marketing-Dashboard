@@ -5,11 +5,11 @@ import EcomIcon from "../../public/EcomIcon.svg";
 import Marketplace from "../../public/Marketplace.svg";
 
 const SidebarDropdown = () => {
+  const [selected, setSelected] = useState(null);
 
-  const className = 'rotate-180'
-  const [click,setClick] = useState(0)
-  console.log(click)
-
+  function handleSingleSelection(getCurrentId) {
+    setSelected(getCurrentId === selected ? null : getCurrentId);
+  }
 
   const dropDownItem = [
     {
@@ -48,20 +48,27 @@ const SidebarDropdown = () => {
   ];
 
   return (
-    <div>
+    <div className="flex flex-col gap-4">
       {dropDownItem &&
         dropDownItem.map((dropDown) => (
           <div key={dropDown.id} className="flex flex-col gap-1">
             <div className="flex items-center justify-between">
               <div className="flex">
-                <div>
-                  <img src={dropDown.icon} alt={dropDown.icon} />
-                </div>
+                {dropDown.collapsible && (
+                  <div>
+                    <img src={dropDown.icon} alt={dropDown.icon} />
+                  </div>
+                )}
                 <div>{dropDown.dropDownName}</div>
               </div>
-              <div className="cursor-pointer" onClick={()=> setClick(dropDown.id)}>
+              <div
+                className="cursor-pointer"
+                onClick={() => handleSingleSelection(dropDown.id)}
+              >
                 <svg
-                  className= {`${click===dropDown.id ? 'rotate-180' : ''}`}
+                  className={`${
+                    selected === dropDown.id ? "rotate-180" : "rotate-0"
+                  }`}
                   width="20"
                   height="20"
                   viewBox="0 0 20 20"
@@ -78,7 +85,12 @@ const SidebarDropdown = () => {
                 </svg>
               </div>
             </div>
-            {dropDown.collapsible && <div>{dropDown.item.length}</div>}
+            {dropDown.collapsible &&
+              dropDown.item.map(({ id, name, link }) => (
+                <div key={id}>
+                  <a href={link}>{name}</a>
+                </div>
+              ))}
           </div>
         ))}
     </div>
