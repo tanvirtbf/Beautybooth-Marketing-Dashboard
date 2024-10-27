@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  html, body { 
+    background-color: #EFF6FC;
+  }
+  *{
+    font-family: "Inter", sans-serif;
+  }
+  .navBtnPadding {
+    @apply py-[6px] px-3
+  }
+}
