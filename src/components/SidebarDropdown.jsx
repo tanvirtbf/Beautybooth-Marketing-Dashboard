@@ -87,7 +87,7 @@ const SidebarDropdown = () => {
             </div>
             {dropDown.collapsible &&
               dropDown.item.map(({ id, name, link }) => (
-                <div key={id} className="pl-6 hidden">
+                <div key={id} className="pl-6">
                   <a href={link}>{name}</a>
                 </div>
               ))}
