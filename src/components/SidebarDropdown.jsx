@@ -53,10 +53,10 @@ const SidebarDropdown = () => {
         dropDownItem.map((dropDown) => (
           <div key={dropDown.id} className="flex flex-col gap-1">
             <div className="flex items-center justify-between">
-              <div className="flex">
+              <div className="flex gap-1">
                 {dropDown.collapsible && (
-                  <div>
-                    <img src={dropDown.icon} alt={dropDown.icon} />
+                  <div className="w-5 h-5">
+                    <img className="w-full h-full" src={dropDown.icon} alt={dropDown.icon} />
                   </div>
                 )}
                 <div>{dropDown.dropDownName}</div>
@@ -87,7 +87,7 @@ const SidebarDropdown = () => {
             </div>
             {dropDown.collapsible &&
               dropDown.item.map(({ id, name, link }) => (
-                <div key={id}>
+                <div key={id} className="pl-6">
                   <a href={link}>{name}</a>
                 </div>
               ))}
