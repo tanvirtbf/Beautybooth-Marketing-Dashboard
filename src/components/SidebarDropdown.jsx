@@ -5,11 +5,10 @@ import EcomIcon from "../../public/EcomIcon.svg";
 import Marketplace from "../../public/Marketplace.svg";
 
 const SidebarDropdown = () => {
-  const [selected, setSelected] = useState(null);
+  // const [selected, setSelected] = useState([
+  //   {id: 0, isClick:false}
+  // ]);
 
-  function handleSingleSelection(getCurrentId) {
-    setSelected(getCurrentId === selected ? null : getCurrentId);
-  }
 
   const dropDownItem = [
     {
@@ -63,7 +62,6 @@ const SidebarDropdown = () => {
               </div>
               <div
                 className="cursor-pointer"
-                onClick={() => handleSingleSelection(dropDown.id)}
               >
                 <svg
                   className={`${
