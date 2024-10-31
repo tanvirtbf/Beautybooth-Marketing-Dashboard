@@ -4,18 +4,19 @@ import { useState } from "react";
 
 const SidebarDropdown = () => {
 
-  const [selected,setSelected] = useState([])
+  const [selected,setSelected] = useState([0])
+  console.log(selected)
 
   const handleSelect = (id)=>{
-    setSelected((prevState)=> (
-      [
-        ...prevState,
-        {_id:id}
-      ]
-    ))
-  }
 
-  const validateSelect = ()=>{
+    if(selected.indexOf(id) === -1){
+      setSelected((prevState)=> (
+        [
+          ...prevState,
+          id
+        ]
+      ))
+    } 
 
   }
 
@@ -91,7 +92,7 @@ const SidebarDropdown = () => {
                 </svg>
               </div>
             </div>
-            {dropDown.collapsible &&
+            {dropDown.collapsible && 
               dropDown.item.map(({ id, name, link }) => (
                 <div key={id} className="pl-6">
                   <a href={link}>{name}</a>
