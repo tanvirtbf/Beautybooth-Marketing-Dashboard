@@ -4,7 +4,7 @@ import { useState } from "react";
 
 const SidebarDropdown = () => {
 
-  const [selected,setSelected] = useState([0])
+  const [selected,setSelected] = useState([])
   console.log(selected)
 
   const handleSelect = (id)=>{
@@ -16,8 +16,10 @@ const SidebarDropdown = () => {
           id
         ]
       ))
-    } 
-
+    } else {
+      const afterDelete = selected.filter((item)=> item!==id)
+      setSelected(afterDelete)
+    }
   }
 
   const dropDownItem = [
@@ -92,7 +94,7 @@ const SidebarDropdown = () => {
                 </svg>
               </div>
             </div>
-            {dropDown.collapsible && 
+            {dropDown.collapsible && selected.find((item)=> item === dropDown.id) &&
               dropDown.item.map(({ id, name, link }) => (
                 <div key={id} className="pl-6">
                   <a href={link}>{name}</a>
