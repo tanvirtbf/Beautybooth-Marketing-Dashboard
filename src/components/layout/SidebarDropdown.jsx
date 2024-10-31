@@ -73,11 +73,11 @@ const SidebarDropdown = () => {
                 <div>{dropDown.dropDownName}</div>
               </div>
               <div
-                className="cursor-pointer"
+                className={`cursor-pointer ${dropDown.collapsible ? 'block': 'hidden'}`}
                 onClick={()=> handleSelect(dropDown.id)}
               >
                 <svg
-                  className={``}
+                  className={`${selected.find((item)=> item === dropDown.id) === dropDown.id ? 'rotate-0': 'rotate-180'}`}
                   width="20"
                   height="20"
                   viewBox="0 0 20 20"
