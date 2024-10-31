@@ -1,10 +1,8 @@
 import { useState } from "react";
 
-
-
 const SidebarDropdown = () => {
 
-  const [selected,setSelected] = useState([])
+  const [selected,setSelected] = useState([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15])
   console.log(selected)
 
   const handleSelect = (id)=>{
@@ -65,11 +63,9 @@ const SidebarDropdown = () => {
           <div key={dropDown.id} className="flex flex-col gap-1">
             <div className="flex items-center justify-between">
               <div className="flex gap-1">
-                {dropDown.collapsible && (
-                  <div className="w-5 h-5">
-                    <img className="w-full h-full" src={dropDown.icon} alt={dropDown.icon} />
-                  </div>
-                )}
+                <div className="w-5 h-5">
+                  <img className="w-full h-full" src={dropDown.icon} alt={dropDown.icon} />
+                </div>
                 <div>{dropDown.dropDownName}</div>
               </div>
               <div
